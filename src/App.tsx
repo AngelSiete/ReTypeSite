@@ -12,9 +12,12 @@ function App() {
     setTodos((prevTodos) => [...prevTodos, newTodo]);
   };
   
+  const deleteTodoHandler = (id: string) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  };
   return (
     <div className="App">
-      <Todos items={todos} />
+      <Todos items={todos} onDeleteTodo={deleteTodoHandler} />
       <NewTodo onAddTodo={handleAddTodo} />
     </div>
   );
